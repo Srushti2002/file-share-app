@@ -24,3 +24,7 @@ service:
       value: 20
     - key: API_BASE_URL
       sync: false
+  disk:
+    name: file-uploads
+    mountPath: /opt/render/project/src/uploads
+    sizeGB: 1
