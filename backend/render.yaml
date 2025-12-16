@@ -1,0 +1,30 @@
+# Render configuration for Backend API
+service:
+  type: web
+  name: file-share-backend
+  runtime: node
+  env: node
+  region: oregon
+  plan: free
+  buildCommand: npm install
+  startCommand: npm start
+  healthCheckPath: /api/health
+  envVars:
+    - key: NODE_ENV
+      value: production
+    - key: PORT
+      value: 10000
+    - key: MONGO_URI
+      sync: false
+    - key: JWT_SECRET
+      generateValue: true
+    - key: CLIENT_ORIGINS
+      sync: false
+    - key: MAX_FILE_SIZE_MB
+      value: 20
+    - key: API_BASE_URL
+      sync: false
+  disk:
+    name: file-uploads
+    mountPath: /opt/render/project/src/uploads
+    sizeGB: 1
