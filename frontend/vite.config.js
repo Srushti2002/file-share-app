@@ -7,8 +7,9 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: process.env.VITE_API_URL || 'http://localhost:5000',
-        changeOrigin: true
+        target: 'https://file-share-app-2-0rpj.onrender.com',
+        changeOrigin: true,
+        rewrite: (path) => path
       }
     }
   },
